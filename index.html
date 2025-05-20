@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Descubra o Motivo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f7fa;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      height: 100vh;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+
+    header button {
+      background: white;
+      color: #2575fc;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    header button:hover {
+      background: #e6e6e6;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .motivo {
+      background: white;
+      margin: 2rem 0;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .motivo.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .motivo h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .teaser {
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .teaser h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .teaser button {
+      background: #2575fc;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .teaser button:hover {
+      background: #1a56c1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TENHO UMA PROPOSTA!!</h1>
+  <p>Mas antes, alguns motivos para te provar por que aceitar...</p>
+  <button onclick="document.getElementById('motivos').scrollIntoView({behavior: 'smooth'})">
+    Me mostre!
+  </button>
+</header>
+
+<section id="motivos">
+  <div class="motivo">
+    <h2>1. Atleticano</h2>
+    <p>Se eu não desisti nem do galo ate hoje, não vai ser essas covinhas na sombrancelha que vão me amedrontar.</p>
+  </div>
+
+  <div class="motivo">
+    <h2>2. Exagerado</h2>
+    <p>Vou exaltar sua real beleza ate eu conseguir mensurar 1% dela em palavras (Nunca).</p>
+  </div>
+
+  <div class="motivo">
+    <h2>3. Pro(gamado)r em você </h2>
+    <p>Meu trabalho é resolver problemas e erros, o unico que ainda to solucionando e não ter você pra mim.</p>
+  </div>
+
+  <div class="motivo">
+    <h2>4. Prometo só fazer piada ruim</h2>
+    <p>Mas se você rir, me deve um beijo.</p>
+  </div>
+
+  <div class="teaser">
+    <h2>Tá curiosa?</h2>
+    <p>Tem algo especial te esperando no final…</p>
+    <button onclick="window.location.href='convite.html'">Descubra o que é!</button>
+  </div>
+</section>
+
+<script>
+  const motivos = document.querySelectorAll('.motivo');
+
+  window.addEventListener('scroll', () => {
+    motivos.forEach((m) => {
+      const top = m.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (top < windowHeight - 100) {
+        m.classList.add('visible');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
